@@ -161,7 +161,7 @@ const renderProduct = (array, theDiv) => {
 
 
 // Endpoint JSON Server (điều chỉnh port nếu bạn đổi)
-const API_URL = "http://localhost:3000/products";
+const API_URL = "https://my-json-server.typicode.com/anhkhoadz18092006-max/backend-json/products";
 
 // Render cho trang chủ
 const productHot = document.getElementById('product-hot');
@@ -207,7 +207,7 @@ if(productDetailDiv){
     const urlParams = new URLSearchParams(window.location.search);
     const id= urlParams.get('id');
     // alert(id);
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(`https://my-json-server.typicode.com/anhkhoadz18092006-max/backend-json/products/${id}`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -423,7 +423,7 @@ document.addEventListener('click', function(e) {
    
     if (e.target && e.target.id == "addCartBtn") {
         const id = e.target.getAttribute('productId');
-        fetch(`http://localhost:3000/products/${id}`)
+        fetch(`https://my-json-server.typicode.com/anhkhoadz18092006-max/backend-json/products/${id}`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -445,7 +445,7 @@ document.addEventListener('click', function(e) {
    
     if (e.target && e.target.classList.contains('add-to-cart')) {
         const id = e.target.getAttribute('data-id');
-        fetch(`http://localhost:3000/products/${id}`)
+        fetch(`https://my-json-server.typicode.com/anhkhoadz18092006-max/backend-json/products/${id}`)
         .then(response => response.json())
         .then(data => {
             const product = new Product(
