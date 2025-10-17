@@ -1,6 +1,6 @@
 // Admin page script: CRUD + search/filter
 (function(){
-  const API_URL = "http://localhost:3000/products";
+  const API_URL = "https://my-json-server.typicode.com/anhkhoadz18092006-max/backend-json/products/";
 
   // Elements
   const tbody = document.getElementById('admin-tbody');
