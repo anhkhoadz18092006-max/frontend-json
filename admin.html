@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Quản trị sản phẩm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quản trị sản phẩm</h1>
+        <div class="admin-toolbar">
+            <div class="admin-filters">
+                <input id="admin-search" type="text" placeholder="Tìm kiếm theo tên...">
+                <select id="admin-filter-category">
+                    <option value="">Tất cả danh mục</option>
+                    <option value="dien thoai">Điện thoại</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="phu kien">Phụ kiện</option>
+                </select>
+                <button id="admin-refresh" class="btn-primary">Làm mới</button>
+            </div>
+            <div class="admin-actions">
+                <button id="btn-open-create" class="btn-primary">+ Thêm sản phẩm</button>
+            </div>
+        </div>
+
+        <div class="admin-table-wrapper">
+            <table class="admin-table" id="admin-table">
+                <thead>
+                    <tr>
+                        <th style="width:64px">ID</th>
+                        <th>Ảnh</th>
+                        <th>Tên</th>
+                        <th>Giá</th>
+                        <th>Danh mục</th>
+                        <th>Hot</th>
+                        <th>Mô tả</th>
+                        <th style="width:150px">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-tbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal thêm/sửa -->
+    <div id="admin-modal" class="modal" aria-hidden="true">
+        <div class="modal-overlay" data-close="true"></div>
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <div class="modal-header">
+                <h3 id="modal-title">Thêm sản phẩm</h3>
+                <button class="modal-close" data-close="true">✕</button>
+            </div>
+            <form id="admin-form" class="modal-body">
+                <input type="hidden" id="product-id">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="product-name">Tên sản phẩm</label>
+                        <input id="product-name" type="text" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="product-price">Giá</label>
+                        <input id="product-price" type="number" min="0" step="1000" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="product-image-file">Ảnh sản phẩm</label>
+                        <input id="product-image-file" type="file" accept="image/*">
+                        <input id="product-image" type="hidden">
+                        <img id="product-image-preview" alt="preview" style="margin-top:8px;max-width:160px;display:none;border-radius:8px;border:1px solid #e5e7eb"/>
+                    </div>
+                    <div class="form-field">
+                        <label for="product-category">Danh mục</label>
+                        <input id="product-category" type="text" placeholder="dien thoai | laptop | phu kien" required>
+                    </div>
+                    <div class="form-field-inline">
+                        <input id="product-hot" type="checkbox">
+                        <label for="product-hot">Sản phẩm hot</label>
+                    </div>
+                    <div class="form-field form-col-span">
+                        <label for="product-desc">Mô tả</label>
+                        <textarea id="product-desc" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" data-close="true">Hủy</button>
+                    <button type="submit" class="btn-primary" id="modal-submit">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="admin.js"></script>
+    
+</body>
+</html>
+
